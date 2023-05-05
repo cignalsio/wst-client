@@ -1,0 +1,9 @@
+{
+  "name": "wst-client",
+  "version": "0.1.0",
+  "description": "WebSocket Time Protocol (WST) - Client Implementation",
+  "main": "index.js",
+  "repository": "https://github.com/cignalsio/wst-client",
+  "author": "<Brad Folkens> <i.am@bradfolkens.com>",
+  "license": "MIT"
+}

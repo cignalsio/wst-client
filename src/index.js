@@ -1,4 +1,4 @@
-export default class {
+export class WST {
   constructor(url = "ws://127.0.0.1:8080/wst", period = 10000) {
     this.url = url
     this.period = period

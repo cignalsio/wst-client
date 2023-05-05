@@ -5,16 +5,20 @@ A simple client implementation of the WebSocket Time Protocol (WST) in JavaScrip
 ## Install
 
 ```bash
-node add wst-client
+yarn add wst-client
 ```
 
 ## Example
 
 ```javascript
+import { WST } from "wst-client"
+
 const wst = new WST("ws://127.0.0.1:8080/wst")
+
 wst.onmessage = (message, data) => {
     console.log(message, data)
 }
+
 wst.start()
 ```
 

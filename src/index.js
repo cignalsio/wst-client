@@ -10,6 +10,7 @@ export class WST {
   }
 
   connect() {
+    this.timer = setInterval(() => { this.send() }, this.period)
     this.socket = new WebSocket(this.url);
 
     if (this.socket == null) {
@@ -19,17 +20,10 @@ export class WST {
     this.socket.onopen = (_e) => {
       this.connectRetries = 0
       this.send()
-      this.timer = setInterval(() => { this.send() }, this.period)
     }
 
     this.socket.onerror = (_e) => {
       this.reconnect()
-    }
-
-    this.socket.onclose = (_e) => {
-      if (this.timer) {
-        clearInterval(this.timer)
-      }
     }
 
     this.socket.onmessage = (e) => {

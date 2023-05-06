@@ -17,6 +17,7 @@ export class WST {
     }
 
     this.socket.onopen = (_e) => {
+      this.connectRetries = 0
       this.send()
       this.timer = setInterval(() => { this.send() }, this.period)
     }

@@ -6,7 +6,6 @@ export class WST {
     this.onmessage = null
     this.socket = null
     this.connectRetries = 0
-    this.timer = setInterval(() => { this.send() }, this.period)
   }
 
   connect() {
@@ -19,10 +18,15 @@ export class WST {
     this.socket.onopen = (_e) => {
       this.connectRetries = 0
       this.send()
+      this.timer = setInterval(() => { this.send() }, this.period)
     }
 
     this.socket.onerror = (_e) => {
       this.reconnect()
+    }
+
+    this.socket.onclose = (_e) => {
+      clearInterval(this.timer)
     }
 
     this.socket.onmessage = (e) => {

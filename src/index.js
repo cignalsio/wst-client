@@ -6,11 +6,10 @@ export class WST {
     this.onmessage = null
     this.socket = null
     this.connectRetries = 0
-    this.timer = null
+    this.timer = setInterval(() => { this.send() }, this.period)
   }
 
   connect() {
-    this.timer = setInterval(() => { this.send() }, this.period)
     this.socket = new WebSocket(this.url);
 
     if (this.socket == null) {

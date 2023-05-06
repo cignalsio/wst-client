@@ -1,6 +1,6 @@
 {
   "name": "wst-client",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "WebSocket Time Protocol (WST) - Client Implementation",
   "module": "dist/index.esm.js",
   "main": "dist/index.js",
